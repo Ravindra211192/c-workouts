@@ -75,6 +75,12 @@ class Time
          Time newtime(newHrs , newMins);
          return newtime;
      }
+     //-= binary operator, void coz same object is changing
+     void operator -= (const Time& newTime){
+         mins -= newTime.mins;
+         hrs -=newTime.hrs;
+         Timecheck();
+     }
      
 };
 
@@ -92,4 +98,7 @@ int main()
     T4.print();
     T2 = T3 - T4;
     cout << "Time T2 is " << T2 <<endl;
+    T2 -= T1;
+    cout << "Time T1 is " << T1 <<endl;
+    cout << "Time T2 after sub with T1 is " << T2 <<endl;
 }
