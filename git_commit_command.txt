@@ -1,0 +1,6 @@
+To remove the last commit from git ,
+	-->git reset --hard HEAD^
+
+Removing the multiple commits from the top,
+	-->git reset --hard HEAD~2
+	-->git reset HEAD^ (for uncommiting the last commit)

@@ -1,0 +1,16 @@
+GIT stash command
+
+git stash list
+
+git stash show -p
+(shows the changes Patches)
+
+git stash apply(to apply stash to working tree in current branch)
+git stash apply stash@{12}(stash you want to apply )
+git stash drop stash@{0}(remove the stash 0 from the stash list)
+git stash pop stash@{1}(to apply selected stash and drop it from stash list)
+
+git stash clear
+(to delete the stash)
+
+ok

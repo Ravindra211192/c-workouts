@@ -1,0 +1,18 @@
+To delete repo branch locally:
+	-->git branch -d localbranchname
+To delete repo branch remotely:
+	-->git push origin --delete remoteBranchName
+
+Try to synchronize the branch list using:
+	-->git fetch -p
+    The -p flag means "prune". After fetching, branches which no longer exist on the remote will be deleted.
+
+To delete files from the staged area:
+	--> git rm -f filename
+Then make a commit stating the file is deleted from the repo
+	--> git commit -m "The file is deleted"
+To unstage the file from the staged area:
+	--> git restore --staged filename
+	--> git reset HEAD filename
+To restore the deleted file from the staged area:
+	--> git restore filenme
