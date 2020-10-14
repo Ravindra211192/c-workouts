@@ -91,6 +91,25 @@ class Time
          return((mins != newTime.mins) || (hrs != newTime.hrs));
      }
 
+     bool operator < (const Time& newTime){
+         if(hrs < newTime.hrs) return(true);
+         else if(hrs > newTime.hrs) return(false);
+         else if(mins < newTime.mins) return(true);
+         else return(false);
+     }
+
+     bool operator <=(const Time& newTime){
+         if(this -> operator == (newTime)) return(true);
+         else return(this -> operator < (newTime));
+     }
+
+     bool operator > (const Time& newTime){
+         return !(this -> operator <= (newTime));
+     }
+
+     bool operator >= (const Time& newTime){
+         return ((this -> operator > (newTime)) || (this -> operator == (newTime)));
+     }
 };
 
 int main()
@@ -110,10 +129,20 @@ int main()
     T2 -= T1;
     cout << "Time T1 is " << T1 <<endl;
     cout << "Time T2 after sub with T1 is " << T2 <<endl;
-    T2= T1;
+    T2 = T1;
     if(T1 == T2) {
         cout << "Time is equal" << endl;
     }
-    else cout<<"Time is not equal"<<endl;
-    
+    else cout << "Time is not equal" << endl;
+    T2 -= T1;
+    cout << "T2 :" << T2 << endl;
+    cout << "T1 :" << T1 << endl;
+    if (T2 <= T1) {
+        cout << "T2 <=T1 " << endl;
+    }
+    else cout << "Not worked !" << endl;
+    if (T1 >= T2) {
+        cout << "T1 >=T2 " << endl;
+    }
+    else cout << "Not worked !" << endl;
 }
