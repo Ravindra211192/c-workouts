@@ -82,6 +82,15 @@ class Time
          Timecheck();
      }
      
+     bool operator==(const Time& newTime){
+         return((mins == newTime.mins) && (hrs == newTime.hrs));
+     }
+
+     bool operator!=(const Time& newTime){
+         //return !(this->operator == (newTime));
+         return((mins != newTime.mins) || (hrs != newTime.hrs));
+     }
+
 };
 
 int main()
@@ -101,4 +110,10 @@ int main()
     T2 -= T1;
     cout << "Time T1 is " << T1 <<endl;
     cout << "Time T2 after sub with T1 is " << T2 <<endl;
+    T2= T1;
+    if(T1 == T2) {
+        cout << "Time is equal" << endl;
+    }
+    else cout<<"Time is not equal"<<endl;
+    
 }
