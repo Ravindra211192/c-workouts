@@ -37,6 +37,12 @@ class Classgrades
           Grades[id] = grade;
       }
 
+      int& operator [] (int index){
+        if(index >= 0 && index < 3){
+            return Grades[index];
+        }
+      }
+
       void PrintGrades(){
           cout <<"Student " << name << " has grades: " << endl;
           for (int i = 0; i < 3; i++){ cout << Grades[i] <<" " ; }
@@ -46,11 +52,14 @@ class Classgrades
 int main()
 {
     Classgrades Student("Ravindra");
-    Student.SetGrade(0,98);
+    Student.SetGrade(2,50);
+    Student[1] = 99;
     Student.PrintGrades();
 
     Classgrades Student1("Dikshya");
-    Student1 = Student;
+    Student1[2] = 100;
     Student1.PrintGrades();
+    Student1 = Student;
 
+    Student1.PrintGrades();
 }
