@@ -33,6 +33,19 @@ class Classgrades
           }
       }
 
+      Classgrades operator- (const Classgrades& newgrades){
+
+          cout << "To substract the grades of :" << name << "from the average grade :" << newgrades.name << endl;
+          string newname;
+          newname = name + '-' + newgrades.name;
+          cout << "New NAME IS : "<<newname << endl;
+          Classgrades avrgnewgrades(newname);
+          for(int i = 0; i < 3; i++){
+              avrgnewgrades.Grades[i] = Grades[i] - newgrades.Grades[i];
+          }
+          return avrgnewgrades;
+      }
+
       void SetGrade(int id, int grade){
           Grades[id] = grade;
       }
@@ -52,6 +65,7 @@ class Classgrades
 int main()
 {
     Classgrades Student("Ravindra");
+	Student[2] = 87;
     Student.SetGrade(2,50);
     Student[1] = 99;
     Student.PrintGrades();
@@ -62,4 +76,15 @@ int main()
     Student1 = Student;
 
     Student1.PrintGrades();
+
+    Classgrades Avrg("Average Scoring");
+	Avrg[0] = 80 ;
+	Avrg[1] = 88 ;
+	Avrg[2] = 78 ;
+
+    Avrg.PrintGrades();
+    //Move Constructor 
+    Classgrades StudentAvrg("Label will be overwritten.");
+    StudentAvrg = Student - Avrg;
+    StudentAvrg.PrintGrades();
 }
