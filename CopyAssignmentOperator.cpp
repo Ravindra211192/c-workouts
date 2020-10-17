@@ -24,7 +24,7 @@ class Classgrades
       Classgrades& operator= (const Classgrades& newgrades){
           cout << "In Copy assignment operator" << endl;
           if (this != &newgrades){
-              //name = newgrades.name;
+              name = newgrades.name;
               if(Grades != NULL) delete [] Grades;
               Grades = new int[3];
               for(int i = 0; i < 3; i++){
@@ -32,9 +32,28 @@ class Classgrades
               }
           }
       }
+     /* //move constructor
+      Classgrades(Classgrades&& newgrades){
+          cout << " In the move constructor :" << newgrades.Grades << endl;
+          name = newgrades.name ;
+          Grades = newgrades.Grades;
+          newgrades.Grades = NULL;
+      }
+      //move assignment operator
+      Classgrades& operator = (const Classgrades&& newgrades){
+          cout << "In Move assignment operator" << endl;
+          cout << "Moving record" << newgrades.name << "into record" << name << endl;
+          name = newgrades.name;
+          if( (this != &newgrades) && (newgrades.Grades != NULL)){
+              if (Grades != NULL) delete [] Grades;
+              Grades = newgrades.Grades;
+              newgrades.Grades = NULL ;
+          }
+          return *this;
+      }*/
 
       Classgrades operator- (const Classgrades& newgrades){
-
+       
           cout << "To substract the grades of :" << name << "from the average grade :" << newgrades.name << endl;
           string newname;
           newname = name + '-' + newgrades.name;
