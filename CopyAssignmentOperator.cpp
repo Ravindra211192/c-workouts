@@ -32,7 +32,7 @@ class Classgrades
               }
           }
       }
-     /* //move constructor
+      //move constructor
       Classgrades(Classgrades&& newgrades){
           cout << " In the move constructor :" << newgrades.Grades << endl;
           name = newgrades.name ;
@@ -40,7 +40,7 @@ class Classgrades
           newgrades.Grades = NULL;
       }
       //move assignment operator
-      Classgrades& operator = (const Classgrades&& newgrades){
+      Classgrades& operator = (Classgrades&& newgrades){
           cout << "In Move assignment operator" << endl;
           cout << "Moving record" << newgrades.name << "into record" << name << endl;
           name = newgrades.name;
@@ -50,10 +50,10 @@ class Classgrades
               newgrades.Grades = NULL ;
           }
           return *this;
-      }*/
+      }
 
       Classgrades operator- (const Classgrades& newgrades){
-       
+
           cout << "To substract the grades of :" << name << "from the average grade :" << newgrades.name << endl;
           string newname;
           newname = name + '-' + newgrades.name;
