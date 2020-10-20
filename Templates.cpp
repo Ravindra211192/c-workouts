@@ -10,7 +10,7 @@ class MyClass
 {
     private:
      T Val;
-     
+
     public:
      void SetVal(const T& x) { Val = x;}
      const T& GetVal() const { return(Val); }
